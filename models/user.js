@@ -54,6 +54,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       password: {
         type: DataTypes.STRING,
+        unique: true,
         allowNull: false,
         validate: {
           notNull: {
@@ -63,8 +64,8 @@ module.exports = (sequelize, DataTypes) => {
             msg: "password should not be empty",
           },
           len: {
-            args: [3, 20],
-            msg: "Password length should be between 3 and 20 characters",
+            args: [8, 20],
+            msg: "Password length should be between 8 and 20 characters",
           },
         },
       },
