@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+</head>
+
+<body>
+  <a href="/user">User Details</a>
+  <h1>Home</h1>
+  <a href="/logout">Logout</a>
+  <form action="/" method="get">
+    <label for="search">Search Name</label>
+    <input type="text" id="search" name="search">
+    <input type="submit" value="Submit">
+  </form>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Courses</th>
+      <th>Teacher</th>
+    </tr>
+    <% data.forEach(element => { %>
+    <tr>
+      <td><%= element.name %></td>
+      <td><%= element.email %></td>
+      <td><%= element.role %></td>
+      <% element.UserCourses ? element.UserCourses.forEach(elements => { %>
+      <td><%= elements.Course.name %></td>
+      <td><%= elements.Course.Teacher.name %></td>
+      <% }) : '' %>
+    </tr>
+    <% }) %>
+  </table>
+</body>
+
+</html>

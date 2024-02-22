@@ -1,0 +1,26 @@
+[
+  {
+    "name": "nanny",
+    "email": "nanny@gmail.com",
+    "password": "$2a$05$C4ulwe7CzuzfcA6v0NTBBOkNRD8nCa.OckG5rDfDPEVIXDEJG7uUS",
+    "role": "admin"
+  },
+  {
+    "name": "mario",
+    "email": "mario@gmail.com",
+    "password": "$2a$05$Jg.Oe71EGQWTg6.mnEYl6.DwtKPcv1PtG27e2yhzz0xUmwPTky2mq",
+    "role": "student"
+  },
+  {
+    "name": "penny",
+    "email": "penny@gmail.com",
+    "password": "$2a$05$nKbeA14UWwShFh.aJzwpmOD.3qLVXsKccBX9XFQM./JXm.i6RbVKe",
+    "role": "admin"
+  },
+  {
+    "name": "luke",
+    "email": "luke@gmail.com",
+    "password": "$2a$05$fuObEZIHsDlZssr.fw3DLOeibiNmPR7erTvSu8UBmS1hvsPml512q",
+    "role": "student"
+  }
+]

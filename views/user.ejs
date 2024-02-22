@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Details</title>
+</head>
+
+<body>
+  <h1>User Details</h1>
+  <a href="/">Home</a><br><br>
+  <% if (message) { %>
+  <%= message %>
+  <% } %>
+  <% if (del) { %>
+  <%= del %>
+  <% } %>
+  <br>
+  <a href="/user/chart">chart</a>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Age</th>
+      <th>Hobby</th>
+      <th>Action</th>
+    </tr>
+    <% data.forEach(element => { %>
+    <tr>
+      <td><%= capitalizeFirstLetter(element.name) %></td>
+      <td><%= capitalizeFirstLetter(element.email) %></td>
+      <td><%= element.role %></td>
+      <% if (element.UserDetail) { %>
+      <td><%= element.UserDetail.age %></td>
+      <td><%= capitalizeFirstLetter(element.UserDetail.format) %></td>
+      <% } %>
+      <td><a href="/user/edit/<%= element.id %>">Edit</a></td>
+      <td><a href="/user/delete/<%= element.id %>">Delete</a></td>
+    </tr>
+    <% }) %>
+  </table>
+</body>
+
+</html>

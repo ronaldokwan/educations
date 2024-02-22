@@ -1,0 +1,22 @@
+[
+  {
+    "age": 25,
+    "hobby": "swimming",
+    "UserId": 1
+  },
+  {
+    "age": 30,
+    "hobby": "chess",
+    "UserId": 2
+  },
+  {
+    "age": 40,
+    "hobby": "music",
+    "UserId": 3
+  },
+  {
+    "age": 50,
+    "hobby": "sleep",
+    "UserId": 4
+  }
+]
