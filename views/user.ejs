@@ -31,11 +31,12 @@
     <tr>
       <td><%= capitalizeFirstLetter(element.name) %></td>
       <td><%= capitalizeFirstLetter(element.email) %></td>
-      <td><%= element.role %></td>
+      <td><%= UserDetail.allUpper(element.role) %></td>
       <% if (element.UserDetail) { %>
       <td><%= element.UserDetail.age %></td>
       <td><%= capitalizeFirstLetter(element.UserDetail.format) %></td>
       <% } %>
+      <td><a href="/user/add/<%= element.id %>">Add</a></td>
       <td><a href="/user/edit/<%= element.id %>">Edit</a></td>
       <td><a href="/user/delete/<%= element.id %>">Delete</a></td>
     </tr>

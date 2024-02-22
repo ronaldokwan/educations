@@ -38,7 +38,8 @@ app.get("/user/edit/:id", Controller.edit);
 app.post("/user/edit/:id", Controller.editProcess);
 app.get("/user/delete/:id", Controller.delete);
 app.get("/user/chart", Controller.chart);
-
+app.get("/user/add/:id", Controller.add);
+app.post("/user/add/:id", Controller.addProcess);
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });

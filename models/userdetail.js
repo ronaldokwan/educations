@@ -16,6 +16,9 @@ module.exports = (sequelize, DataTypes) => {
     get format() {
       return this.hobby + " is fun";
     }
+    static allUpper(role) {
+      return role.toUpperCase();
+    }
   }
   UserDetail.init(
     {

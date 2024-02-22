@@ -21,10 +21,65 @@ module.exports = (sequelize, DataTypes) => {
   }
   User.init(
     {
-      name: DataTypes.STRING,
-      email: DataTypes.STRING,
-      password: DataTypes.STRING,
-      role: DataTypes.STRING,
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "name should not be null",
+          },
+          notEmpty: {
+            msg: "name should not be empty",
+          },
+          len: {
+            args: [3, 20],
+            msg: "name length should be between 3 and 20 characters",
+          },
+        },
+      },
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "email should not be null",
+          },
+          notEmpty: {
+            msg: "email should not be empty",
+          },
+          isEmail: {
+            msg: "Email format is not correct",
+          },
+        },
+      },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "password should not be null",
+          },
+          notEmpty: {
+            msg: "password should not be empty",
+          },
+          len: {
+            args: [3, 20],
+            msg: "Password length should be between 3 and 20 characters",
+          },
+        },
+      },
+      role: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "role should not be null",
+          },
+          notEmpty: {
+            msg: "role should not be empty",
+          },
+        },
+      },
     },
     {
       hooks: {

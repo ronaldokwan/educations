@@ -55,8 +55,15 @@ class Controller {
       await User.create({ name, password, email, role });
       res.redirect("/login");
     } catch (error) {
-      console.log(error);
-      res.send(error);
+      if (error.name === "SequelizeValidationError") {
+        let errors = error.errors.map((item) => {
+          return item.message;
+        });
+        res.redirect(`/register?error=${errors}`);
+      } else {
+        console.log(error.message);
+        res.send(error.message);
+      }
     }
   }
   static async logout(req, res) {
@@ -77,7 +84,6 @@ class Controller {
     try {
       let data = await User.findAll({
         include: {
-          // model: Courses,
           model: UserCourses,
           include: {
             model: Courses,
@@ -114,9 +120,18 @@ class Controller {
     try {
       let message = req.query.error;
       let del = req.query.message;
-      let data = await User.findAll({ include: UserDetail });
+      let data = await User.findAll({
+        include: UserDetail,
+        order: [["name", "asc"]],
+      });
       // res.send(data);
-      res.render("user", { data, capitalizeFirstLetter, message, del });
+      res.render("user", {
+        data,
+        capitalizeFirstLetter,
+        message,
+        del,
+        UserDetail,
+      });
     } catch (error) {
       console.log(error);
       res.send(error);
@@ -213,6 +228,42 @@ class Controller {
     } catch (error) {
       console.log(error);
       res.send(error);
+    }
+  }
+  static async add(req, res) {
+    try {
+      let id = req.params.id;
+      let data = await UserDetail.findAll({
+        where: {
+          UserId: req.params.id,
+        },
+      });
+      if (data.length !== 0) {
+        res.redirect(`/user?message=nothing to add`);
+      } else {
+        res.render("add", { id });
+      }
+    } catch (error) {
+      console.log(error);
+      res.send(error);
+    }
+  }
+  static async addProcess(req, res) {
+    try {
+      await UserDetail.create({
+        UserId: req.params.id,
+        age: req.body.age,
+        hobby: req.body.hobby,
+      });
+      res.redirect(`/user`);
+    } catch (error) {
+      if (error.name === "SequelizeValidationError") {
+        let errors = error.errors.map((item) => {
+          return item.message;
+        });
+
+        res.redirect(`/user?error=${errors}`);
+      }
     }
   }
 }
