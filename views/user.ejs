@@ -10,8 +10,8 @@
 <body>
   <h1>User Details</h1>
   <a href="/">Home</a><br><br>
-  <% if (message) { %>
-  <%= message %>
+  <% if(message){ %>
+  <p style="color:red"><%= message %></p>
   <% } %>
   <% if (del) { %>
   <%= del %>

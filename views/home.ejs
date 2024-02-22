@@ -11,28 +11,41 @@
   <a href="/user">User Details</a>
   <h1>Home</h1>
   <a href="/logout">Logout</a>
+  <h2>Many-to-Many:User and Courses,<br> One-to-Many:Teachers and Courses,<br> One-to-One:UserDetail and User</h2>
   <form action="/" method="get">
     <label for="search">Search Name</label>
     <input type="text" id="search" name="search">
     <input type="submit" value="Submit">
   </form>
-  <table>
+  <table border="1">
     <tr>
       <th>Name</th>
       <th>Email</th>
       <th>Role</th>
       <th>Courses</th>
-      <th>Teacher</th>
+      <th>Teachers</th>
     </tr>
     <% data.forEach(element => { %>
     <tr>
       <td><%= element.name %></td>
       <td><%= element.email %></td>
       <td><%= element.role %></td>
-      <% element.UserCourses ? element.UserCourses.forEach(elements => { %>
-      <td><%= elements.Course.name %></td>
-      <td><%= elements.Course.Teacher.name %></td>
-      <% }) : '' %>
+      <td>
+        <% 
+        let courses = [];
+        let teachers = [];
+        if (element.UserCourses) {
+          element.UserCourses.forEach(elements => {
+            courses.push(elements.Course.name);
+            teachers.push(elements.Course.Teacher.name);
+          });
+        }
+        %>
+        <%= courses.length > 0 ? courses.join(', ') : 'None' %>
+      </td>
+      <td>
+        <%= teachers.length > 0 ? teachers.join(', ') : 'None' %>
+      </td>
     </tr>
     <% }) %>
   </table>

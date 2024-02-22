@@ -14,5 +14,13 @@
   {
     "name": "History",
     "TeacherId": 4
+  },
+  {
+    "name": "Biology",
+    "TeacherId": 4
+  },
+  {
+    "name": "Chemistry",
+    "TeacherId": 1
   }
 ]

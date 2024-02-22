@@ -43,7 +43,8 @@ class Controller {
   }
   static async register(req, res) {
     try {
-      res.render("register");
+      const { error } = req.query;
+      res.render("register", { error });
     } catch (error) {
       console.log(error);
       res.send(error);
@@ -122,7 +123,7 @@ class Controller {
       let del = req.query.message;
       let data = await User.findAll({
         include: UserDetail,
-        order: [["name", "asc"]],
+        order: [["id", "asc"]],
       });
       // res.send(data);
       res.render("user", {

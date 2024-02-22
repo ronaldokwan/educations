@@ -3,7 +3,7 @@
     "name": "nanny",
     "email": "nanny@gmail.com",
     "password": "$2a$05$C4ulwe7CzuzfcA6v0NTBBOkNRD8nCa.OckG5rDfDPEVIXDEJG7uUS",
-    "role": "admin"
+    "role": "student"
   },
   {
     "name": "mario",
@@ -15,7 +15,7 @@
     "name": "penny",
     "email": "penny@gmail.com",
     "password": "$2a$05$nKbeA14UWwShFh.aJzwpmOD.3qLVXsKccBX9XFQM./JXm.i6RbVKe",
-    "role": "admin"
+    "role": "student"
   },
   {
     "name": "luke",
