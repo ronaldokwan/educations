@@ -66,6 +66,11 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     {
+      hooks: {
+        beforeCreate(instance, options) {
+          instance.hobby = instance.hobby + "s";
+        },
+      },
       sequelize,
       modelName: "UserDetail",
     }
