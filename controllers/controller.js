@@ -138,19 +138,6 @@ class Controller {
       res.send(error);
     }
   }
-  static async add(req, res) {
-    try {
-      let data = await UserDetail.findAll({
-        where: {
-          UserId: req.params.id,
-        },
-      });
-      res.render("edit", { data });
-    } catch (error) {
-      console.log(error);
-      res.send(error);
-    }
-  }
   static async edit(req, res) {
     try {
       let data = await UserDetail.findAll({
@@ -234,7 +221,7 @@ class Controller {
   static async add(req, res) {
     try {
       let id = req.params.id;
-      let data = await UserDetail.findAll({
+      let data = await UserDetail.add({
         where: {
           UserId: req.params.id,
         },

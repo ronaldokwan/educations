@@ -19,6 +19,10 @@ module.exports = (sequelize, DataTypes) => {
     static allUpper(role) {
       return role.toUpperCase();
     }
+    static async add(sorted) {
+      let data = await UserDetail.findAll(sorted);
+      return data;
+    }
   }
   UserDetail.init(
     {
